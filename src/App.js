@@ -5,7 +5,7 @@ import butcherPigImage from "./assets/butcherPig.jpeg"
 const App = () => {
   // ACTION ITEM: to make the development process easier there are some preassigned words in the input field, when you are ready for your full user experience delete the test words passed to useState and pass an empty string
   const [userInput, setUserInput] = useState(
-    "apple easy bad good"
+    "squeal"
   )
   const [inputTranslated, setInputTranslated] = useState("")
 
@@ -37,10 +37,23 @@ const App = () => {
       // Output: word that begins with vowel and adds way to the end  
       // if word begin with "a" "e" "i" "o" "u" add "way" to the end.
       // Return that word 
-      if (eachWord[0] === vowelsArray[0]){
-        return eachWord + "way"
-      }
-      // ACTION ITEM: this return will be the output of your Pig Latin'd code
+      //Part 2
+      // Input: If userInput contains "qu" in begining of the word.
+      // Output: "qu" needs to be pushed to the end of the word and concat "ay"
+      // Return the word
+// console.log(eachWord.indexOf("q"))
+
+
+
+    if(eachWord.slice(0,3).includes("qu")) {
+      let slicePoint = eachWord.indexOf("q") + 2
+      return eachWord.slice(slicePoint) + (eachWord.slice(0, slicePoint)) + "ay"
+     
+    } else if (eachWord[0] === vowelsArray[0]){
+            return eachWord + "way"
+    
+    }
+    //   // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
 
