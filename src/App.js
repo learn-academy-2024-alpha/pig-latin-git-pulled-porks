@@ -41,17 +41,24 @@ const App = () => {
       // Input: If userInput contains "qu" in begining of the word.
       // Output: "qu" needs to be pushed to the end of the word and concat "ay"
       // Return the word
+      //part 3
+      // input: userInput contains no vowels but has a 'y'
+      // output: moves all contonants to the end and adds ay to end of word
+
 // console.log(eachWord.indexOf("q"))
 
-
+let notConsonants = "aeiou"
 
     if(eachWord.slice(0,3).includes("qu")) {
       let slicePoint = eachWord.indexOf("q") + 2
       return eachWord.slice(slicePoint) + (eachWord.slice(0, slicePoint)) + "ay"
-     
+
     } else if (eachWord[0] === vowelsArray[0]){
-            return eachWord + "way"
+      return eachWord + "way"
     
+    } else if (eachWord.includes("y") && !notConsonants.includes()){
+      let slicePointY = eachWord.indexOf("y")
+      return eachWord.slice(slicePointY) + (eachWord.slice(0, slicePointY)) + "ay"
     }
     //   // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
