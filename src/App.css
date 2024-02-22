@@ -6,6 +6,7 @@
 /* ---HEADER--- */
 
 h1 {
+  font-family: monospace;
   font-size: 4rem;
 }
 
@@ -15,6 +16,10 @@ h1 {
 }
 
 /* ---BODY--- */
+
+body { 
+background-image: "pullpork.webp";
+}
 
 button {
   border-radius: 0.9rem;
