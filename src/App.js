@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import "./App.css"
-import butcherPigImage from "./assets/butcherPig.jpeg"
+import pullPork from "./assets/pullpork.webp"
 
 const App = () => {
   // ACTION ITEM: to make the development process easier there are some preassigned words in the input field, when you are ready for your full user experience delete the test words passed to useState and pass an empty string
   const [userInput, setUserInput] = useState(
-    "squeal"
+    " "
   )
   const [inputTranslated, setInputTranslated] = useState("")
 
@@ -48,6 +48,8 @@ const App = () => {
 // console.log(eachWord.indexOf("q"))
 
 let notConsonants = "aeiou"
+let consonants = 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ';
+
 
     if(eachWord.slice(0,3).includes("qu")) {
       let slicePoint = eachWord.indexOf("q") + 2
@@ -59,6 +61,9 @@ let notConsonants = "aeiou"
     } else if (eachWord.includes("y") && !notConsonants.includes()){
       let slicePointY = eachWord.indexOf("y")
       return eachWord.slice(slicePointY) + (eachWord.slice(0, slicePointY)) + "ay"
+    } else if (consonants.includes(eachWord[0])) {
+      let slicePointVowel = eachWord.search(/[aeiou]/i)
+      return eachWord.slice(slicePointVowel) + eachWord.slice(0, slicePointVowel) + "ay"
     }
     //   // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
@@ -74,7 +79,7 @@ let notConsonants = "aeiou"
 
   // ACTION ITEM: this method restarts the game by setting the original state, when you are ready for your full user experience delete the test words in setUserInput and pass an empty string
   const restartGame = () => {
-    setUserInput("apple through queen squeal fry fluent")
+    setUserInput("  ")
     setInputTranslated("")
   }
 
@@ -92,12 +97,9 @@ let notConsonants = "aeiou"
   return (
     <div className="page-container">
       <div className="body-container">
+       <img src={pullPork} ></img>
         <h1>Pig Latin Translator</h1>
-        <img
-          src={butcherPigImage}
-          alt="drawing of pig with butcher cut names in pig latin"
-          className="butcher-pig-image"
-        />
+       
 
         <div className="input-section">
           <h4>Enter phrase to be translated:</h4>
@@ -113,7 +115,7 @@ let notConsonants = "aeiou"
         </div>
         <p>{inputTranslated}</p>
       </div>
-      <footer>&copy; 2023 | Coded by: Your Names Here!</footer>
+      <footer>&copy; 2023 | Coded by: Ryan and Mark!</footer>
     </div>
   )
 }
